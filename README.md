@@ -1,10 +1,10 @@
 # Neonspeelhal
 
-Een speelhal-website met twaalf browsergames. Alles draait in de browser: geen server,
+Een speelhal-website met vijftig browsergames. Alles draait in de browser: geen server,
 geen database, geen account. Twee dingen zijn genoeg:
 
 ```
-index.html          de speelhal zelf, met elf ingebouwde games
+index.html          de speelhal zelf, met negenenveertig ingebouwde games
 games/hexdrift.html Hexdrift, die als eigen pagina in een frame draait
 ```
 
