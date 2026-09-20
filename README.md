@@ -1,10 +1,10 @@
 # Neonspeelhal
 
-Een speelhal-website met elf browsergames. Alles draait in de browser: geen server,
+Een speelhal-website met twaalf browsergames. Alles draait in de browser: geen server,
 geen database, geen account. Twee dingen zijn genoeg:
 
 ```
-index.html          de speelhal zelf, met tien ingebouwde games
+index.html          de speelhal zelf, met elf ingebouwde games
 games/hexdrift.html Hexdrift, die als eigen pagina in een frame draait
 ```
 
@@ -77,3 +77,10 @@ Losse pagina als game: zet het HTML-bestand in `games/` en geef het blokje
 
 Records en het aantal keer gespeeld worden per bezoeker in de browser bewaard
 (localStorage) — er gaat niets naar een server.
+
+## Tablet en telefoon
+
+Alles is met vingers te spelen: de tank heeft twee duimsticks, de racers en
+Blokval hebben knoppen op het scherm, Slangenkuil en 2048 werken met vegen en de
+dino springt door te tikken (onderin tikken = bukken). Liggend scherm werkt het
+prettigst.
