@@ -1,0 +1,16 @@
+# Neonspeelhal — statische site, niets te bouwen.
+# Netlify serveert simpelweg de bestanden uit de hoofdmap.
+
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
+
+[[headers]]
+  for = "/games/*"
+  [headers.values]
+    Cache-Control = "public, max-age=600"
