@@ -4,8 +4,9 @@ Een speelhal-website met vijftig browsergames. Alles draait in de browser: geen 
 geen database, geen account. Twee dingen zijn genoeg:
 
 ```
-index.html          de speelhal zelf, met negenenveertig ingebouwde games
-games/hexdrift.html Hexdrift, die als eigen pagina in een frame draait
+index.html               de speelhal zelf, met achtenveertig ingebouwde games
+games/hexdrift.html      Hexdrift, eigen pagina met kaarten, schepen en missies
+games/tankarena3.html    Tank Arena 3, eigen pagina met kaarten, tanks en missies
 ```
 
 ## Lokaal bekijken
@@ -73,7 +74,9 @@ GAMES.push({
 ```
 
 Losse pagina als game: zet het HTML-bestand in `games/` en geef het blokje
-`src:'games/mijngame.html'` in plaats van `create`.
+`src:'games/mijngame.html'` in plaats van `create`. Zo draaien Hexdrift en
+Tank Arena 3: die hebben een eigen beginscherm, verzamelkaarten, een werkplaats
+en missies, en bewaren hun voortgang zelf in localStorage.
 
 Records en het aantal keer gespeeld worden per bezoeker in de browser bewaard
 (localStorage) — er gaat niets naar een server.
