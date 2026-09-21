@@ -81,6 +81,18 @@ en missies, en bewaren hun voortgang zelf in localStorage.
 Records en het aantal keer gespeeld worden per bezoeker in de browser bewaard
 (localStorage) — er gaat niets naar een server.
 
+## Voortgang bewaren
+
+Rechtsboven zit de knop **Voortgang**. Daar sla je alles wat je hebt bereikt op
+onder een naam: de records van alle games plus je tanks, kaarten, credits en
+missies van Tank Arena 3 en Hexdrift. Later kies je die naam en je speelt verder
+waar je was.
+
+Wil je op een ander apparaat verder? Klik bij een opslag op **Code**: je krijgt
+een tekstcode van een paar honderd tekens. Die plak je op de andere telefoon,
+tablet of computer in het codevak en klik je op **Invoeren**. Alles staat er dan
+weer. Bewaar vanaf de startpagina, niet midden in een potje.
+
 ## Tablet en telefoon
 
 Alles is met vingers te spelen: de tank heeft twee duimsticks, de racers en
