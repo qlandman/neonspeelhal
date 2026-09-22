@@ -916,7 +916,62 @@
       hp:150,spd:216,rate:.27,dmg:23,bounce:2,
       body:'#FF7A2F',accent:'#2A0C02',glow:[255,122,47],
       chassis:'spin',barrel:'vlam',paint:'gevaar',paint2:'#3A1404',turretShape:'rond',seed:53,nummer:'FX',
-      extra:{vleugels:true,uitlaat:true,antenne:true}}
+      extra:{vleugels:true,uitlaat:true,antenne:true}},
+
+    /* ---- derde lichting ---- */
+    kiel:{label:'Kiel',note:'salvo',power:'salvo',rar:'normaal',
+      hp:88,spd:252,rate:.23,dmg:11,bounce:1,
+      body:'#7FD8E8',accent:'#08202A',glow:[127,216,232],
+      chassis:'licht',barrel:'gatling',paint:'hex',paint2:'#12404E',turretShape:'rond',seed:55,nummer:'02',
+      extra:{antenne:true,uitlaat:true}},
+    balk:{label:'Balk',note:'reparatie',power:'reparatie',rar:'normaal',
+      hp:180,spd:148,rate:.52,dmg:26,bounce:1,
+      body:'#8A8F7A',accent:'#14160F',glow:[138,143,122],
+      chassis:'zwaar',barrel:'kanon',paint:'camo',paint2:'#3A3E28',turretShape:'hoekig',seed:57,nummer:'61',
+      extra:{stowage:true,spikes:true,uitlaat:true}},
+    pion:{label:'Pion',note:'rookgordijn',power:'rook',rar:'normaal',
+      hp:108,spd:214,rate:.32,dmg:15,bounce:1,
+      body:'#D9D2C4',accent:'#1A1712',glow:[217,210,196],
+      chassis:'wiel',barrel:'dubbel',paint:'strepen',paint2:'#4A4436',turretShape:'rond',seed:59,nummer:'11',
+      extra:{stowage:true,rookpot:true}},
+
+    nomade:{label:'Nomade',note:'mijnen',power:'mijnen',rar:'zeldzaam',
+      hp:124,spd:208,rate:.3,dmg:16,bounce:2,
+      body:'#E0A24C',accent:'#241604',glow:[224,162,76],
+      chassis:'spin',barrel:'naald',paint:'tijger',paint2:'#4A2E08',turretShape:'hoekig',seed:61,nummer:'34',
+      extra:{spikes:true,stowage:true,antenne:true}},
+    vonk:{label:'Vonk',note:'emp',power:'emp',rar:'zeldzaam',
+      hp:106,spd:226,rate:.27,dmg:14,bounce:2,
+      body:'#B6FF5C',accent:'#141F04',glow:[182,255,92],
+      chassis:'medium',barrel:'spoel',paint:'hex',paint2:'#3A5410',turretShape:'rond',seed:63,nummer:'48',
+      extra:{antenne:true,rookpot:true}},
+    slee:{label:'Slee',note:'fase',power:'fase',rar:'zeldzaam',
+      hp:116,spd:244,rate:.29,dmg:15,bounce:2,
+      body:'#A8B6FF',accent:'#0C1030',glow:[168,182,255],
+      chassis:'hover',barrel:'kanon',paint:'chevron',paint2:'#2A3270',turretShape:'hoekig',seed:65,nummer:'26',
+      extra:{vleugels:true,antenne:true}},
+
+    wolf:{label:'Wolf',note:'kogelregen',power:'kogelregen',rar:'epic',
+      hp:132,spd:230,rate:.25,dmg:17,bounce:2,
+      body:'#9BA6B8',accent:'#10141C',glow:[155,166,184],
+      chassis:'wiel',barrel:'quad',paint:'tijger',paint2:'#2C333F',turretShape:'hoekig',seed:67,nummer:'77',
+      extra:{spikes:true,stowage:true,uitlaat:true,antenne:true}},
+    monnik:{label:'Monnik',note:'hologram',power:'hologram',rar:'epic',
+      hp:144,spd:186,rate:.36,dmg:22,bounce:3,
+      body:'#C9A2FF',accent:'#1A0E30',glow:[201,162,255],
+      chassis:'artillerie',barrel:'boog',paint:'hex',paint2:'#3E2470',turretShape:'rond',seed:69,nummer:'08',
+      extra:{stowage:true,rookpot:true,vleugels:true}},
+
+    draak:{label:'Draak',note:'napalm',power:'napalm',rar:'legendarisch',
+      hp:196,spd:178,rate:.4,dmg:30,bounce:2,
+      body:'#E03A2A',accent:'#260604',glow:[224,58,42],
+      chassis:'zwaar',barrel:'vlam',paint:'tijger',paint2:'#3A0C04',turretShape:'hoekig',seed:71,nummer:'DR',
+      extra:{spikes:true,stowage:true,uitlaat:true,vleugels:true}},
+    komeet:{label:'Komeet',note:'overdrive',power:'overdrive',rar:'legendarisch',
+      hp:134,spd:268,rate:.21,dmg:18,bounce:3,
+      body:'#FFF0A8',accent:'#2A2408',glow:[255,240,168],
+      chassis:'hover',barrel:'naald',paint:'chevron',paint2:'#5A4E14',turretShape:'rond',seed:73,nummer:'KM',
+      extra:{vleugels:true,antenne:true,uitlaat:true}}
   };
   var TANKKEYS=Object.keys(TANKS);
 
@@ -953,6 +1008,27 @@
       for(var q=-3;q<=3;q++){
         c.save(); c.translate(q*hl*.16,0); c.rotate(-.5);
         c.fillRect(-hl*.045,-hw,hl*.09,hw*2.4); c.restore();
+      }
+    } else if(p==='tijger'){
+      for(var ti=-3;ti<=3;ti++){
+        var tx2=ti*hl*.16;
+        c.beginPath();
+        c.moveTo(tx2,-hw); c.lineTo(tx2+hl*.05,-hw*.2);
+        c.lineTo(tx2-hl*.02,hw*.25); c.lineTo(tx2+hl*.06,hw);
+        c.lineTo(tx2+hl*.12,hw); c.lineTo(tx2+hl*.05,hw*.2);
+        c.lineTo(tx2+hl*.1,-hw*.3); c.lineTo(tx2+hl*.06,-hw); c.closePath(); c.fill();
+      }
+    } else if(p==='hex'){
+      var hs=hw*.34;
+      for(var hx=-3;hx<=3;hx++)for(var hy=-2;hy<=2;hy++){
+        if(((hx*5+hy*11+(cfg.seed||2)*3)%4)>1)continue;
+        var ox2=hx*hs*1.5, oy2=hy*hs*1.72+(hx%2?hs*.86:0);
+        c.beginPath();
+        for(var hk=0;hk<6;hk++){
+          var ha=hk/6*6.283;
+          c.lineTo(ox2+Math.cos(ha)*hs*.52,oy2+Math.sin(ha)*hs*.52);
+        }
+        c.closePath(); c.fill();
       }
     } else if(p==='digitaal'){
       for(var dx=-4;dx<=4;dx++)for(var dy=-2;dy<=2;dy++){
@@ -1333,13 +1409,45 @@
 
   /* ---------- vijanden ---------- */
   var ETYPES={
-    grunt:{hp:46,r:17,spd:78,col:'#FF4D6D',dmg:9,rate:1.35,bspd:300,want:230,score:100,naam:'Grunt'},
-    scout:{hp:28,r:14,spd:148,col:'#FF8AA8',dmg:6,rate:.72,bspd:360,want:180,score:120,naam:'Verkenner'},
-    brute:{hp:130,r:24,spd:52,col:'#E0452F',dmg:7,rate:2.0,bspd:270,want:180,score:220,naam:'Bruut'},
-    sniper:{hp:44,r:17,spd:62,col:'#FFB13B',dmg:24,rate:2.6,bspd:720,want:420,score:230,naam:'Scherpschutter'},
-    bomber:{hp:40,r:18,spd:132,col:'#C8FA4B',dmg:26,rate:99,bspd:0,want:0,score:180,naam:'Bommenwerper'},
-    turret:{hp:90,r:20,spd:0,col:'#7FA0FF',dmg:8,rate:1.7,bspd:400,want:0,score:160,naam:'Geschutskoepel'},
-    boss:{hp:900,r:38,spd:62,col:'#9B6BFF',dmg:14,rate:1.1,bspd:330,want:250,score:1500,naam:'Kolossus'}
+    grunt:{hp:46,r:17,spd:78,col:'#FF4D6D',dmg:9,rate:1.35,bspd:300,want:230,score:100,naam:'Grunt',
+      art:{chassis:'medium',barrel:'kanon',paint:'digitaal',paint2:'#4A1220',turretShape:'hoekig',seed:2,nummer:'G1',
+        extra:{stowage:true,uitlaat:true}}},
+    scout:{hp:28,r:14,spd:148,col:'#FF8AA8',dmg:6,rate:.72,bspd:360,want:180,score:120,naam:'Verkenner',
+      art:{chassis:'licht',barrel:'naald',paint:'chevron',paint2:'#5A2033',turretShape:'rond',seed:5,nummer:'V7',
+        extra:{antenne:true}}},
+    brute:{hp:130,r:24,spd:52,col:'#E0452F',dmg:7,rate:2.0,bspd:270,want:180,score:220,naam:'Bruut',shots:5,spread:.13,
+      art:{chassis:'zwaar',barrel:'quad',paint:'gevaar',paint2:'#2A0E06',turretShape:'hoekig',seed:3,nummer:'B4',
+        extra:{spikes:true,stowage:true,uitlaat:true}}},
+    sniper:{hp:44,r:17,spd:62,col:'#FFB13B',dmg:24,rate:2.6,bspd:720,want:420,score:230,naam:'Scherpschutter',
+      art:{chassis:'licht',barrel:'naald',paint:'strepen',paint2:'#4A3208',turretShape:'hoekig',seed:7,nummer:'S9',
+        extra:{antenne:true,rookpot:true}}},
+    bomber:{hp:40,r:18,spd:132,col:'#C8FA4B',dmg:26,rate:99,bspd:0,want:0,score:180,naam:'Bommenwerper',
+      art:{chassis:'wiel',barrel:'sloop',paint:'gevaar',paint2:'#2A3208',turretShape:'rond',seed:11,nummer:'!!',
+        extra:{spikes:true,antenne:true}}},
+    turret:{hp:90,r:20,spd:0,col:'#7FA0FF',dmg:8,rate:1.7,bspd:400,want:0,score:160,naam:'Geschutskoepel',
+      art:{chassis:'artillerie',barrel:'gatling',paint:'digitaal',paint2:'#1E2C55',turretShape:'hoekig',seed:13,nummer:'T2',
+        extra:{stowage:true}}},
+    /* ---- nieuwe soorten ---- */
+    jager:{hp:52,r:15,spd:176,col:'#FF6A3D',dmg:8,rate:.6,bspd:420,want:150,score:190,naam:'Jager',shots:2,spread:.1,
+      art:{chassis:'wiel',barrel:'gatling',paint:'chevron',paint2:'#5A2410',turretShape:'rond',seed:17,nummer:'J3',
+        extra:{antenne:true,uitlaat:true}}},
+    mortier:{hp:78,r:20,spd:54,col:'#F2A65A',dmg:16,rate:2.9,bspd:230,want:470,score:280,naam:'Mortierwagen',
+      range:700,bopt:{boom:2,r:6.5,life:3.2,col:'#FFCB8A'},
+      art:{chassis:'artillerie',barrel:'sloop',paint:'camo',paint2:'#5A4420',turretShape:'hoekig',seed:19,nummer:'M8',
+        extra:{stowage:true,rookpot:true}}},
+    schild:{hp:210,r:26,spd:46,col:'#B85C9E',dmg:11,rate:2.2,bspd:290,want:200,score:340,naam:'Schildwacht',shots:3,spread:.17,
+      art:{chassis:'zwaar',barrel:'dubbel',paint:'strepen',paint2:'#3A1030',turretShape:'hoekig',seed:23,nummer:'SW',
+        extra:{spikes:true,stowage:true,rookpot:true,uitlaat:true}}},
+    kruiper:{hp:96,r:19,spd:104,col:'#7ED66B',dmg:10,rate:1.1,bspd:340,want:210,score:260,naam:'Kruiper',shots:3,spread:.09,
+      art:{chassis:'spin',barrel:'dubbel',paint:'camo',paint2:'#22461A',turretShape:'rond',seed:29,nummer:'K5',
+        extra:{spikes:true,antenne:true}}},
+    raket:{hp:70,r:19,spd:88,col:'#5FD0E8',dmg:13,rate:2.4,bspd:250,want:340,score:300,naam:'Raketwerper',
+      shots:2,spread:.3,bopt:{home:3.2,r:5.4,life:3.4,col:'#A8ECFF',boom:1},
+      art:{chassis:'wiel',barrel:'boog',paint:'digitaal',paint2:'#10404E',turretShape:'hoekig',seed:31,nummer:'R6',
+        extra:{antenne:true,rookpot:true,stowage:true}}},
+    boss:{hp:900,r:38,spd:62,col:'#9B6BFF',dmg:14,rate:1.1,bspd:330,want:250,score:1500,naam:'Kolossus',
+      art:{chassis:'zwaar',barrel:'dubbel',paint:'gevaar',paint2:'#2A1050',turretShape:'hoekig',seed:37,nummer:'XX',
+        extra:{spikes:true,stowage:true,vleugels:true,antenne:true,rookpot:true,uitlaat:true}}}
   };
   /* ---------- arenaplattegronden (kwart, 4x gespiegeld) ---------- */
   var T4=34;
@@ -1667,7 +1775,14 @@
       hp:Math.round(d.hp*mul),maxhp:Math.round(d.hp*mul),spd:d.spd*D.spd,col:d.col,
       dmg:d.dmg*(1+.05*(S.wave-1))*D.dmg,rate:d.rate,bspd:d.bspd,want:d.want,score:d.score,
       cool:rnd(.4,1.6),strafe:Math.random()<.5?1:-1,strafeT:rnd(.8,2.2),charge:0,hurtT:0,
-      phase:0,phaseT:2.5,spiralA:0,alive:true,treadT:0,burst:0,burstT:0,stun:0};
+      phase:0,phaseT:2.5,spiralA:0,alive:true,treadT:0,burst:0,burstT:0,stun:0,
+      shots:d.shots||1,spread:d.spread||.12,range:d.range||520,bopt:d.bopt||null,elite:false};
+    /* vanaf golf 6 rijdt er af en toe een veteraan mee */
+    if(type!=='boss'&&S.wave>=6&&Math.random()<Math.min(.34,.07*(S.wave-5))){
+      e.elite=true;
+      e.hp=e.maxhp=Math.round(e.maxhp*1.55);
+      e.dmg*=1.2; e.spd*=1.08; e.score=Math.round(e.score*1.8);
+    }
     S.tanks.push(e); return e;
   }
   function shoot(o,ang,opt){
@@ -1915,9 +2030,10 @@
       var r=Math.random();
       if(w<=1)out.push('grunt');
       else if(w<=2)out.push(r<.65?'grunt':'scout');
-      else if(w<=3)out.push(r<.45?'grunt':r<.75?'scout':'brute');
-      else if(w<=6)out.push(r<.32?'grunt':r<.55?'scout':r<.72?'brute':r<.9?'sniper':'bomber');
-      else out.push(r<.22?'grunt':r<.4?'scout':r<.56?'brute':r<.72?'sniper':r<.86?'bomber':'turret');
+      else if(w<=3)out.push(r<.4?'grunt':r<.66?'scout':r<.86?'brute':'jager');
+      else if(w<=6)out.push(r<.24?'grunt':r<.42?'scout':r<.56?'brute':r<.68?'jager':r<.8?'sniper':r<.9?'bomber':'kruiper');
+      else if(w<=10)out.push(r<.16?'grunt':r<.3?'scout':r<.42?'brute':r<.54?'jager':r<.64?'sniper':r<.73?'bomber':r<.82?'kruiper':r<.9?'mortier':'turret');
+      else out.push(r<.12?'grunt':r<.24?'scout':r<.34?'brute':r<.45?'jager':r<.55?'sniper':r<.63?'bomber':r<.72?'kruiper':r<.8?'mortier':r<.88?'raket':r<.95?'schild':'turret');
     }
     return out;
   }
@@ -2166,12 +2282,16 @@
       my=Math.sin(toP)*f2+Math.sin(toP+Math.PI/2)*e.strafe*st;
       if(!seen){mx=Math.cos(toP);my=Math.sin(toP);}
       e.cool-=dt;
-      if(seen&&e.cool<=0&&d<520&&Math.abs(angDiff(e.turret,toP))<.42){
+      if(seen&&e.cool<=0&&d<(e.range||520)&&Math.abs(angDiff(e.turret,toP))<.42){
         e.cool=e.rate*rnd(.85,1.2);
-        if(e.type==='brute'){
-          for(i=-2;i<=2;i++)shoot(e,e.turret+i*.13+rnd(-.03,.03),{spd:e.bspd*rnd(.9,1.1),col:'#FF8A6A'});
-          shakeBy(2);
-        } else shoot(e,e.turret+rnd(-.07,.07),{});
+        var sh3=e.shots||1, spr=e.spread||.12;
+        for(i=0;i<sh3;i++){
+          var bo={};
+          if(e.bopt)for(var bk in e.bopt)bo[bk]=e.bopt[bk];
+          bo.spd=bo.spd||e.bspd*rnd(.94,1.06);
+          shoot(e,e.turret+(i-(sh3-1)/2)*spr+rnd(-.035,.035),bo);
+        }
+        if(sh3>2)shakeBy(1.8);
       }
     }
     var ml=Math.hypot(mx,my);
@@ -2585,11 +2705,19 @@
 
   /* ---------- tekenen ---------- */
   function enemyCfg(e){
-    var shape=e.type==='brute'?'zwaar':e.type==='scout'?'licht':
-              e.type==='sniper'?'schuin':e.type==='turret'?'dubbel':
-              e.type==='boss'?'zwaar':'basis';
-    return {body:e.col,roof:'#1A1018',accent:'#0B0A10',hull:e.type==='boss'?1.1:1,
-      turret:e.type==='sniper'?1.35:1,shape:shape};
+    var a=(ETYPES[e.type]||{}).art||{};
+    if(!e._cfg){
+      e._cfg={body:e.col,roof:'#1A1018',accent:a.accent||'#0B0A10',
+        hull:e.type==='boss'?1.14:1,turret:e.type==='sniper'?1.35:1,
+        chassis:a.chassis||'medium',barrel:a.barrel||'kanon',
+        paint:a.paint||'effen',paint2:a.paint2,turretShape:a.turretShape||'rond',
+        seed:a.seed||3,nummer:a.nummer,extra:a.extra||{}};
+      if(e.elite){
+        e._cfg.paint2='#FFD87A';
+        e._cfg.nummer='★'+(a.nummer||'');
+      }
+    }
+    return e._cfg;
   }
   function draw(){
     var sx=0,sy=0,i;
@@ -2758,9 +2886,27 @@
     }
     for(i=0;i<S.tanks.length;i++){
       var en=S.tanks[i];
+      if(en.elite){
+        c.save(); c.globalCompositeOperation='lighter';
+        var eg2=c.createRadialGradient(en.x,en.y,en.r*.5,en.x,en.y,en.r+18);
+        eg2.addColorStop(0,'rgba(255,200,90,.22)'); eg2.addColorStop(1,'rgba(255,190,80,0)');
+        c.fillStyle=eg2; c.beginPath(); c.arc(en.x,en.y,en.r+18,0,6.284); c.fill();
+        c.restore();
+      }
       c.save(); c.translate(en.x,en.y);
       drawTankArt(c,enemyCfg(en),en.r,{hull:en.hull,turret:en.turret,hurt:en.hurtT,t:S.t});
       c.restore();
+      if(en.elite){
+        /* veteranenstrepen boven de tank */
+        c.save(); c.translate(en.x,en.y-en.r-19);
+        c.strokeStyle='rgba(255,206,110,.9)'; c.lineWidth=2; c.lineCap='round';
+        for(var ev=0;ev<2;ev++){
+          c.beginPath();
+          c.moveTo(-6,ev*4.5); c.lineTo(0,ev*4.5-3.4); c.lineTo(6,ev*4.5);
+          c.stroke();
+        }
+        c.lineCap='butt'; c.restore();
+      }
       if(en.stun>0){
         c.strokeStyle='rgba(99,232,255,'+(.4+.3*Math.sin(S.t*20))+')'; c.lineWidth=2;
         c.beginPath(); c.arc(en.x,en.y,en.r+10,0,6.284); c.stroke();
